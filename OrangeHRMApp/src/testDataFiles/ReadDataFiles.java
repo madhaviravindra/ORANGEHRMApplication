@@ -1,4 +1,4 @@
-package testDataFile;
+package testDataFiles;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,7 +10,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.mainscripts.SuperScript;
-import commonUtilities.TakeSnapshots;
+
+import commonUtilitiesNew.TakeSnapshots;
 
 public class ReadDataFiles
 {
@@ -19,7 +20,7 @@ public class ReadDataFiles
 	public static int i,j,RowCount,RowCount1,ColumnCount;
 	protected static String WedgetType,TestData,Locator,FieldName;
 	public static String TestSenario,RunMode,Sheet_Name;
-	public static String PropertyFile="D:\\Java_Selenium_Branch\\OrangeHRMApplication\\Resource\\PropertyFile.properties";
+	public static String PropertyFile="C:\\Users\\ravindrak.INFICS\\gitRavindra\\OrangeHRMApp\\Resource\\PropertyFile.properties";
 	
 	public static void GetExcelFile(String Path,String SheetName) throws Exception 
 	 {

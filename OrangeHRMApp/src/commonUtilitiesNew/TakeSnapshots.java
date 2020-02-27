@@ -1,4 +1,4 @@
-package commonUtilities;
+package commonUtilitiesNew;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -9,9 +9,9 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import testDataFile.ReadDataFiles;
-
 import com.mainscripts.*;
+
+import testDataFiles.ReadDataFiles;
 public class TakeSnapshots extends SuperScript
 {
 	public static void TakeSnapshot() throws Exception

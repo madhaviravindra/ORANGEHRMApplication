@@ -17,10 +17,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import testDataFile.ReadDataFiles;
+import commonUtilitiesNew.ReportUtility;
+import testDataFiles.ReadDataFiles;
 
 public class SuperScript extends ReadDataFiles
 {
+	// this class is for main scripts with action methods
 	public static WebDriver driver;
 	public static WebElement ElementAddress;
 	public static String ActualResult,ExpectedResult,ElementLocator1,ButtonTxt;
@@ -76,14 +78,20 @@ public class SuperScript extends ReadDataFiles
 		 }
 //*************************************************************		 
 		try {
-			if (WedgetType.equalsIgnoreCase("Label")) {
+			if (WedgetType.equalsIgnoreCase("Label")) 
+			{
+				String Actual = null;
 				elementExist = ElementAddress.isDisplayed();
 				if (elementExist==true) {
+					Actual=Boolean.toString(elementExist);
+					ReportUtility.GenerateReport(FieldName, Actual, TestData);
+					System.out.println(FieldName+"      "+Actual+"     "+TestData);
 					System.out.println("Verification pass for the field " + FieldName
 							+ " is getting displayed on screen " + TestData);
 				}
 				else
 				{
+					ReportUtility.GenerateReport(FieldName, Actual, TestData);
 					System.out.println("Verification failed for the field " + FieldName
 							+ " is not displayed on screen " + TestData);
 				}
@@ -138,11 +146,13 @@ public class SuperScript extends ReadDataFiles
 			ElementAddress.click();
 			Thread.sleep(20000);
 		 }
+		
 		else if(WedgetType.equalsIgnoreCase("Title"))
 		 {
 			 String ActTitle =driver.getTitle();
 			 if(ActTitle.equals(TestData))
 			 {
+				 ReportUtility.GenerateReport(FieldName, ActTitle, TestData);
 				 System.out.println("Displayed title as per the requirement");
 			 }
 			 else
@@ -275,7 +285,13 @@ public class SuperScript extends ReadDataFiles
 					    System.out.println("control move to new tab");
 				}
 		 }
-		 
+		 else if (WedgetType.equalsIgnoreCase("Tab Key")) {
+				if (checkNull(TestData)) {
+					
+					Robot r= new Robot();
+					r.keyPress(KeyEvent.VK_TAB);
+				}
+		 }
 		 else if(WedgetType.contains("Verify Add Employee"))
 		 {
 			 if (checkNull(TestData)) {

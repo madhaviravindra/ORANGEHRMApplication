@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import com.mainscripts.SuperScript;
 
-import testDataFile.ReadDataFiles;
+import testDataFiles.ReadDataFiles;
 
 public class TestClass extends ReadDataFiles
 {
